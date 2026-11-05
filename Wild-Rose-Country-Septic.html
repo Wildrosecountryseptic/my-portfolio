@@ -1,0 +1,848 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Independent septic system design and soil evaluations. Based in Rimbey, serving rural Central Alberta.">
+
+  <title>Wild Rose Country Septic | Rimbey, Alberta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bree+Serif&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forest: #304b39;
+      --forest-dark: #20382b;
+      --cream: #f8f5ec;
+      --paper: #fffdf8;
+      --brown: #856749;
+      --rose: #a75c67;
+      --ink: #303a31;
+      --muted: #626c62;
+      --line: #d9dacd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: "Bree Serif", Georgia, serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5.5vw, 4.6rem);
+      margin: 10px 0 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.65rem);
+      margin: 8px 0 18px;
+    }
+
+    h3 {
+      font-size: 1.28rem;
+      margin: 0 0 8px;
+    }
+
+    p {
+      margin: 0 0 13px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .eyebrow {
+      color: var(--brown);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      max-width: 740px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 13px 0;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--forest);
+      font: 1.45rem/1.05 "Bree Serif", Georgia, serif;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 4px;
+      color: var(--brown);
+      font: 700 .67rem "DM Sans", sans-serif;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: var(--rose);
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-block;
+      padding: 11px 21px;
+      border: 2px solid var(--forest);
+      border-radius: 5px;
+      background: var(--forest);
+      color: #fff;
+      font: 700 .92rem "DM Sans", sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--forest-dark);
+    }
+
+    .btn.light {
+      background: var(--paper);
+      border-color: var(--paper);
+      color: var(--forest-dark);
+    }
+
+    .btn.transparent {
+      background: transparent;
+      border-color: #f0ebdd;
+      color: #fff;
+    }
+
+    /* HOME */
+
+    .hero {
+      padding: 88px 0;
+      color: #fff;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(24, 45, 31, .93),
+          rgba(32, 56, 43, .66)
+        ),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&auto=format&fit=crop")
+        center / cover;
+    }
+
+    .hero-content {
+      max-width: 740px;
+    }
+
+    .hero .eyebrow {
+      color: #e3c8a6;
+    }
+
+    .hero p {
+      color: #f1f0e7;
+      font-size: 1.1rem;
+      max-width: 630px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 23px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: var(--paper);
+    }
+
+    .about-content {
+      max-width: 850px;
+    }
+
+    .about h2 {
+      color: var(--forest);
+    }
+
+    .about p {
+      font-size: 1rem;
+    }
+
+    /* DESIGN PROCESS */
+
+    .process {
+      background: var(--cream);
+    }
+
+    .timeline {
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 75px 1fr;
+      gap: 20px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-number {
+      color: var(--brown);
+      font-family: "Bree Serif", Georgia, serif;
+      font-size: 1.85rem;
+      line-height: 1.2;
+    }
+
+    .timeline-content {
+      max-width: 850px;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+    }
+
+    .timeline-content strong {
+      color: var(--ink);
+    }
+
+    .timeline-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SEPTIC SYSTEMS */
+
+    .systems {
+      background: var(--paper);
+    }
+
+    .system-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 45px;
+      margin-top: 18px;
+    }
+
+    .system-entry {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .system-entry p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .systems-note {
+      max-width: 800px;
+      margin-top: 22px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info a {
+      color: var(--forest);
+    }
+
+    .service-area-note {
+      margin-top: 22px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    form {
+      padding: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    form h3 {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: .88rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .required {
+      color: var(--rose);
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 10px 11px;
+      margin-bottom: 13px;
+      border: 1px solid #c8cfc2;
+      border-radius: 4px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid var(--forest);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .form-note {
+      margin: 10px 0 0;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--forest-dark);
+      color: #f2f0e8;
+      padding: 24px 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: .9rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .system-list {
+        column-gap: 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      html {
+        scroll-padding-top: 145px;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+
+      .hero {
+        padding: 68px 0;
+      }
+
+      .container {
+        width: min(100% - 30px, 1080px);
+      }
+
+      nav {
+        gap: 9px 14px;
+      }
+
+      nav a {
+        font-size: .78rem;
+      }
+
+      .timeline-item {
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        padding: 20px 0;
+      }
+
+      .timeline-number {
+        font-size: 1.5rem;
+      }
+
+      .system-list {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#home" class="brand">
+      ✿ Wild Rose
+      <small>Country Septic</small>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#process">Design Process</a>
+      <a href="#systems">Septic Systems</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Independent Septic Design · Central Alberta
+        </div>
+
+        <h1>
+          Good septic design<br>
+          starts with good soil.
+        </h1>
+
+        <p>
+          Practical septic system design for acreages,
+          country homes, and rural properties.
+          Based in Rimbey, Alberta.
+        </p>
+
+        <div class="actions">
+          <a class="btn light" href="#contact">
+            Request a Site Visit
+          </a>
+
+          <a class="btn transparent" href="#process">
+            How It Works
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+
+        <div class="eyebrow">
+          About Wild Rose Country Septic
+        </div>
+
+        <h2>
+          Local septic design. Straightforward service.
+        </h2>
+
+        <p>
+          Wild Rose Country Septic is an independently operated
+          septic design business based in Rimbey, Alberta.
+          When you get in touch, you're dealing directly
+          with the person evaluating your property
+          and preparing your design.
+        </p>
+
+        <p>
+          I believe in practical recommendations,
+          clear communication, and designs that suit
+          the conditions of each property.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PROCESS -->
+
+  <section class="process" id="process">
+    <div class="container">
+
+      <h2>How the Design Process Works</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-number">01</div>
+
+          <div class="timeline-content">
+            <h3>Property &amp; Home Information</h3>
+
+            <p>
+              You'll provide information about your property
+              and home to help establish the septic system
+              requirements and identify any site-specific
+              considerations.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">02</div>
+
+          <div class="timeline-content">
+            <h3>Site &amp; Soil Evaluation</h3>
+
+            <p>
+              <strong>
+                The property owner is responsible for arranging
+                and excavating the test pits.
+              </strong>
+              You can have your builder dig them or do it
+              yourself if you have suitable equipment available.
+              Using equipment already on-site can help avoid
+              additional excavation costs.
+            </p>
+
+            <p>
+              I'll then evaluate and document the soil
+              conditions, property slope, and required setbacks.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">03</div>
+
+          <div class="timeline-content">
+            <h3>System Design &amp; Approval</h3>
+
+            <p>
+              Based on the soil evaluation results, I'll
+              determine the appropriate septic system type,
+              sizing, and layout. I'll explain the recommended
+              system and the reasons for its selection before
+              submitting the design to the municipality
+              for approval.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">04</div>
+
+          <div class="timeline-content">
+            <h3>Completed Design</h3>
+
+            <p>
+              Once the design is approved, I'll provide you
+              with the finalized drawings, supporting documentation,
+              and system maintenance requirements.
+              You can then use these documents to obtain quotes
+              from installers and proceed with installation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEPTIC SYSTEMS -->
+
+  <section class="systems" id="systems">
+    <div class="container">
+
+      <div class="eyebrow">
+        Septic Systems
+      </div>
+
+      <h2>Finding the right system for your property.</h2>
+
+      <p class="lead muted">
+        The best system depends on soil conditions,
+        available space, and how the property will be used.
+        Common options include:
+      </p>
+
+      <div class="system-list">
+
+        <div class="system-entry">
+          <h3>Treatment Fields</h3>
+          <p>
+            Underground distribution trenches that use
+            suitable natural soil to treat wastewater.
+          </p>
+        </div>
+
+        <div class="system-entry">
+          <h3>Treatment Mounds</h3>
+          <p>
+            Raised treatment beds used where natural
+            soil conditions are not suitable for
+            a conventional field.
+          </p>
+        </div>
+
+        <div class="system-entry">
+          <h3>LFH At-Grade Systems</h3>
+          <p>
+            An option for qualifying established forested
+            properties with suitable organic soil layers
+            and secondary treatment.
+          </p>
+        </div>
+
+        <div class="system-entry">
+          <h3>Open Discharge Systems</h3>
+          <p>
+            An option on qualifying properties where
+            site conditions and applicable requirements
+            allow effluent to discharge onto the ground.
+          </p>
+        </div>
+
+        <div class="system-entry">
+          <h3>Holding Tanks</h3>
+          <p>
+            Sealed tanks that store wastewater for
+            regular pumping, where permitted.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="systems-note">
+        Septic tanks and additional treatment equipment
+        may also be part of a complete system.
+        I'll explain the recommended design after
+        evaluating your property.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+
+      <div class="contact-info">
+
+        <div class="eyebrow">
+          Get in Touch
+        </div>
+
+        <h2>Let's talk about your property.</h2>
+
+        <p>
+          Have a question or need a septic system design?
+          Send me an inquiry using the form,
+          or reach me directly by phone or email.
+        </p>
+
+        <h3>Wild Rose Country Septic</h3>
+
+        <p>Rimbey, Alberta</p>
+
+        <p>
+          <strong>Phone:</strong><br>
+          <a href="tel:+14033924908">403-392-4908</a>
+        </p>
+
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:wildrosecountryseptic@gmail.com">
+            wildrosecountryseptic@gmail.com
+          </a>
+        </p>
+
+        <div class="service-area-note">
+          <h3>Service Area</h3>
+
+          <p>
+            Based in Rimbey, serving rural properties
+            in Red Deer County, Lacombe County,
+            Ponoka County, Clearwater County,
+            and nearby Central Alberta communities.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- DIRECT SUBMISSION CONTACT FORM -->
+
+      <form
+        action="https://formsubmit.co/wildrosecountryseptic@gmail.com"
+        method="POST"
+      >
+
+        <h3>General Inquiries</h3>
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Website Inquiry - Wild Rose Country Septic"
+        >
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="true"
+        >
+
+        <label for="name">
+          Name <span class="required">*</span>
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          autocomplete="name"
+        >
+
+        <label for="email">
+          Email Address <span class="required">*</span>
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+        >
+
+        <label for="phone">
+          Phone Number <span class="required">*</span>
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          autocomplete="tel"
+        >
+
+        <label for="message">
+          How can we help you?
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+        ></textarea>
+
+        <button class="btn" type="submit">
+          Submit Inquiry
+        </button>
+
+        <p class="form-note">
+          Fields marked * are required.
+          Your inquiry will be submitted directly.
+        </p>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      © <span id="year"></span>
+      Wild Rose Country Septic · Rimbey, Alberta
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
