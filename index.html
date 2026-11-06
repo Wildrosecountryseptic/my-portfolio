@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,13 @@
   <meta name="description" content="Independent septic system design and soil evaluations. Based in Rimbey, serving rural Central Alberta.">
 
   <title>Wild Rose Country Septic | Rimbey, Alberta</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23304b39'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23f8f5ec'>✿</text></svg>">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wild Rose Country Septic | Rimbey, Alberta">
+  <meta property="og:description" content="Independent septic system design and soil evaluations for rural Central Alberta. AOWMA certified.">
+  <meta property="og:url" content="https://wildrosecountryseptic.ca/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -410,9 +416,47 @@
       }
     }
 
+    .cert-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--forest);
+      border-radius: 4px;
+      background: var(--cream);
+      font-size: .92rem;
+    }
+
+    .thanks {
+      display: none;
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      border-radius: 4px;
+      background: #e7efe4;
+      color: var(--forest-dark);
+      font-weight: 600;
+    }
+
+    .optional {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    footer p + p {
+      margin-top: 6px;
+    }
+
+    footer a {
+      color: #f2f0e8;
+    }
+
     @media (max-width: 600px) {
       html {
-        scroll-padding-top: 145px;
+        scroll-padding-top: 20px;
+      }
+
+      header {
+        position: static;
       }
 
       section {
@@ -461,7 +505,7 @@
 <header>
   <div class="container header-inner">
     <a href="#home" class="brand">
-      ✿ Wild Rose
+      <span aria-hidden="true">✿</span> Wild Rose
       <small>Country Septic</small>
     </a>
 
@@ -529,15 +573,20 @@
         <p>
           Wild Rose Country Septic is an independently operated
           septic design business based in Rimbey, Alberta.
-          When you get in touch, you're dealing directly
-          with the person evaluating your property
-          and preparing your design.
+          My name is Maria Lee. When you get in touch,
+          you're dealing directly with me, the person
+          evaluating your property and preparing your design.
         </p>
 
         <p>
           I believe in practical recommendations,
           clear communication, and designs that suit
           the conditions of each property.
+        </p>
+
+        <p class="cert-badge">
+          <strong>Certified</strong> through the Alberta Onsite
+          Wastewater Management Association (AOWMA)
         </p>
 
       </div>
@@ -586,6 +635,12 @@
             </p>
 
             <p>
+              <strong>Before digging, request a utility locate
+              through Utility Safety Partners (Alberta One-Call).</strong>
+              It's free and helps prevent damage to buried lines.
+            </p>
+
+            <p>
               I'll then evaluate and document the soil
               conditions, property slope, and required setbacks.
             </p>
@@ -602,9 +657,9 @@
               Based on the soil evaluation results, I'll
               determine the appropriate septic system type,
               sizing, and layout. I'll explain the recommended
-              system and the reasons for its selection before
-              submitting the design to the municipality
-              for approval.
+              system and the reasons for its selection.
+              The design is then submitted with the permit
+              application for your area.
             </p>
           </div>
         </div>
@@ -668,9 +723,10 @@
         <div class="system-entry">
           <h3>LFH At-Grade Systems</h3>
           <p>
-            An option for qualifying established forested
-            properties with suitable organic soil layers
-            and secondary treatment.
+            An option for qualifying forested properties.
+            Treated effluent is spread over the natural
+            forest floor layer (called LFH). Requires
+            secondary treatment.
           </p>
         </div>
 
@@ -760,6 +816,22 @@
 
         <h3>General Inquiries</h3>
 
+        <p class="thanks" id="thanks" role="status">
+          Thanks! Your inquiry was sent. I'll be in touch soon.
+        </p>
+
+        <input
+          type="hidden"
+          name="_next"
+          value="https://wildrosecountryseptic.ca/?sent=1#contact"
+        >
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        >
+
         <input
           type="hidden"
           name="_subject"
@@ -795,18 +867,27 @@
         >
 
         <label for="phone">
-          Phone Number <span class="required">*</span>
+          Phone Number <span class="optional">(optional)</span>
         </label>
         <input
           id="phone"
           name="phone"
           type="tel"
-          required
           autocomplete="tel"
         >
 
+        <label for="location">
+          Property Location
+          <span class="optional">(county, legal land description, or nearest town)</span>
+        </label>
+        <input
+          id="location"
+          name="property_location"
+          type="text"
+        >
+
         <label for="message">
-          How can we help you?
+          How can I help you?
         </label>
         <textarea
           id="message"
@@ -836,12 +917,21 @@
       © <span id="year"></span>
       Wild Rose Country Septic · Rimbey, Alberta
     </p>
+    <p>
+      <a href="tel:+14033924908">403-392-4908</a> ·
+      <a href="mailto:wildrosecountryseptic@gmail.com">wildrosecountryseptic@gmail.com</a>
+      · AOWMA certified
+    </p>
   </div>
 </footer>
 
 <script>
   document.getElementById("year").textContent =
     new Date().getFullYear();
+
+  if (new URLSearchParams(location.search).get("sent") === "1") {
+    document.getElementById("thanks").style.display = "block";
+  }
 </script>
 
 </body>
